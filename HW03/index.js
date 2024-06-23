@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
   counters.home += 1;
   saveCounters(counters);
   res.send(`<h1>Home Page</h1>
-    <p>Main count: ${counters.home}</p>`);
+    <p>Home count: ${counters.home}</p>`);
 });
 
 app.get("/about", (req, res) => {

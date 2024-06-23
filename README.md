@@ -11,3 +11,8 @@ with counters on each of them.
 create a module for npm js
 
 > npm i profile_generator_for_gb
+
+## HW03 - express server
+
+create an express server with <br>
+saved to JSON visit counters
