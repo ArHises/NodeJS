@@ -1,6 +1,6 @@
 {
   "name": "profile_generator_for_gb",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "HW02 npm and package",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,10 @@
     "profile",
     "generator"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArHises/NodeJS.git"
+  },
   "author": "Arh",
   "license": "ISC"
 }
