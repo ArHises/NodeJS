@@ -1,4 +1,3 @@
-// Function to generate a random name
 function generateName() {
   const names = [
     "John",
@@ -15,7 +14,6 @@ function generateName() {
   return names[Math.floor(Math.random() * names.length)];
 }
 
-// Function to generate a random surname
 function generateSurname() {
   const surnames = [
     "Smith",
@@ -32,14 +30,12 @@ function generateSurname() {
   return surnames[Math.floor(Math.random() * surnames.length)];
 }
 
-// Function to generate a random email
 function generateEmail(name, surname) {
   const domains = ["gmail.com", "mailru.com", "walla.com", "scum.com"];
   const domain = domains[Math.floor(Math.random() * domains.length)];
   return `${name.toLowerCase()}.${surname.toLowerCase()}@${domain}`;
 }
 
-// Function to generate a random phone number
 function generatePhoneNumber() {
   const areaCode = Math.floor(Math.random() * 900) + 100;
   const centralOfficeCode = Math.floor(Math.random() * 900) + 100;
@@ -47,7 +43,6 @@ function generatePhoneNumber() {
   return `${areaCode}-${centralOfficeCode}-${lineNumber}`;
 }
 
-// Function to generate a random ID
 function generateId() {
   return Math.floor(Math.random() * 1000000);
 }
@@ -69,7 +64,6 @@ function generateRandomProfile() {
   };
 }
 
-// Export the functions
 module.exports = {
   generateName,
   generateSurname,

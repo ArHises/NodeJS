@@ -1,11 +1,16 @@
 {
-  "name": "hw02",
-  "version": "1.0.0",
+  "name": "profile_generator_for_gb",
+  "version": "1.0.2",
   "description": "HW02 npm and package",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "random",
+    "profile",
+    "generator"
+  ],
   "author": "Arh",
   "license": "ISC"
 }
