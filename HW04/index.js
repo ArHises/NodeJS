@@ -10,13 +10,22 @@
 */
 
 // Exporting:
-const { error } = require("console");
+const joi = require("joi");
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const userGenerator = require("profile_generator_for_gb");
+const { error } = require("console");
 
 //Initializing:
+const userSchem = joi.object({
+  name: joi.string().min(2).required(),
+  surname: joi.string().min(2).required(),
+  email: joi.string().min(2).required(),
+  phoneNumber: joi.string().min(10).required(),
+  id: joi.number(),
+});
+
 const app = express();
 const filePath = path.join(__dirname, "users.json");
 
@@ -51,6 +60,11 @@ app.get("/users/:id", (req, res) => {
 });
 
 app.put("/users/:id", (req, res) => {
+  const result = userSchem.validate(req.body);
+  if (result.error) {
+    res.status(500).send({ error: result.error.details, status: error });
+  }
+
   const users = JSON.parse(fs.readFileSync(filePath));
   const user = users.find((item) => item.id === +req.params.id);
   if (user) {
@@ -67,6 +81,11 @@ app.put("/users/:id", (req, res) => {
 });
 
 app.post("/users/", (req, res) => {
+  const result = userSchem.validate(req.body);
+  if (result.error) {
+    res.status(500).send({ error: result.error.details, status: error });
+  }
+
   const users = JSON.parse(fs.readFileSync(filePath));
 
   const user = {
@@ -74,7 +93,7 @@ app.post("/users/", (req, res) => {
     surname: req.body.surname,
     email: req.body.email,
     phoneNumber: req.body.phoneNumber,
-    id: userGenerator.generateId(),
+    id: req.body.id ? req.body.id : userGenerator.generateId(),
   };
 
   users.push(user);
